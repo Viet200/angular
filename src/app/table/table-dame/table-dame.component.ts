@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-table-dame',
@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./table-dame.component.css']
 })
 export class TableDameComponent implements OnInit {
-
-  constructor() { }
+  @Input() dame:number;
+  constructor() {
+    this.dame = 0;
+  }
 
   ngOnInit(): void {
   }
+
+
 
 }
