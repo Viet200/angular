@@ -1,0 +1,8 @@
+<span *ngIf="(field.dirty || field.touched) && field.errors?.['required']" class="text-danger"> {{key}} Bắt buộc nhập</span>
+<span *ngIf="(field.dirty || field.touched) && field.errors?.['min']" class="text-danger">{{key}} k được dưới 1</span>
+<span *ngIf="(field.dirty || field.touched) && field.errors?.['max']" class="text-danger">{{key}}  k được trên 100</span>
+
+<span *ngIf="(field.dirty || field.touched) && field.errors?.['minlength']" class="text-danger">{{key}} phải trên {{field.errors?.['minlength'].requiredLength}} ký tự</span>
+
+
+
