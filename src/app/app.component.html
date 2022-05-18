@@ -1,4 +1,46 @@
 <div class="container">
+
+  <div>
+    <p>Sự kiện</p>
+    <button class="btn btn-primary" (click)="onClickBtn()">
+      {{showStatus?"Ẩn":"Hiện"}} bảng dữ liệu
+    </button>
+  </div>
+  <div>
+    <label for="input">Sự kiện cho input</label>
+    <input type="text" name="" id="input" (input)="onInput($event,'sự kiện input')">
+  </div>
+  <div>
+    <input type="text" placeholder="name" name="" id="name" (input)="onInput1($event,'name') "  [value]="inputValue.name">
+
+  </div>
+  <div>
+    <input type="text" placeholder="dame" name="" id="dame" (input)="onInput1($event,'dame')"[value]="inputValue.dame">
+
+  </div>
+  <div>
+    <input type="text" placeholder="defend" name="" id="defend" (input)="onInput1($event,'defend')"[value]="inputValue.defend">
+
+
+  </div>
+  <div>
+    <input type="text" placeholder="speed" name="" id="speed" (input)="onInput1($event,'speed')" [value]="inputValue.speed">
+
+
+  </div>
+  <div>
+    <input type="text" placeholder="price" name="" id="price" (input)="onInput1($event,'price')" [value]="inputValue.price">
+
+
+  </div>
+  <div>
+    <input type="text" placeholder="avatar" name="" id="avatar" (input)="onInput1($event,'avatar')" [value]="inputValue.avatar">
+
+
+  </div>
+  <div>
+    <button class="btn btn-success" (click)="onSubmit()">Submit</button>
+  </div>
   <h1>Champions LMHT</h1>
   <div>
     Tên <app-name [name]="studentName"></app-name>
@@ -8,9 +50,9 @@
   </div>
 
   <div>
-    <app-table [champions]="champs" ></app-table>
+    <app-table [champions]="champs" class="{{showStatus?'db':'dn'}}" ></app-table>
   </div>
   <div>
-   
+
   </div>
 </div>

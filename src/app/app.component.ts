@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -45,5 +45,53 @@ export class AppComponent {
   ];
   studentName = "vietnv";
   studentID='ph12345';
+
+  showStatus = true;
+  onClickBtn(){
+    console.log("btn clicked");
+    this.showStatus=!this.showStatus;
+  }
+  onInput(event:any,inputName:string){
+    console.log(inputName, event.target.value);
+
+  }
+  inputValue={
+    name:'',
+    dame:'',
+    defend:'',
+    speed:'',
+    price:'',
+    avatar:''
+  }
+  onInput1(event:any,key:'name'|'dame'|'defend'|'speed'|'price'|'avatar'){
+    this.inputValue[key]=event.target.value;
+
+  }
+  // inputName = '';
+  // onInputName(name:any){
+  //   this.inputValue['name']=name.target.value;
+  // }
+  // // inputAvatar='';
+  // onInputAvatar(avatar:any){
+  //   this.inputValue['avatar']=avatar.target.value;
+  // }
+  onSubmit(){
+    console.log(
+     this.inputValue
+    );
+      this.champs.push({...this.inputValue,dame:+this.inputValue.dame,
+        defend:+this.inputValue.defend,
+        speed:+this.inputValue.speed,
+        price:+this.inputValue.price,});
+        this.inputValue={
+          name:'',
+          dame:'',
+          defend:'',
+          speed:'',
+          price:'',
+          avatar:''
+        }
+  }
+
 };
 
