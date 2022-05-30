@@ -1,23 +1,91 @@
-<p>{{userForm.valid | json}}</p>
-<form action="" #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+<p>{{inputValues | json}}</p>
+<form action="" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+  <div class="form-group">
+    <input
+      type="hidden"
+      class="form-control"
+      name="id"
+      [(ngModel)]="inputValues.id"
+      required minlength="5" maxlength="32"
+      #name="ngModel"
+    >
+  </div>
   <div class="form-group">
     <label for="">Tên user</label>
-    <input type="text" class="form-control" id="" name="name" ngModel required minlength="2" maxlength="7"
-      #name="ngModel">
-    <!-- <span>{{name.touched |json}}</span> -->
-    <app-show-validate [field]="name" key="tên"></app-show-validate>
-
-
+    <input
+      type="text"
+      class="form-control"
+      name="name"
+      [(ngModel)]="inputValues.name"
+      required minlength="5" maxlength="32"
+      #name="ngModel"
+    >
+    <app-show-validate [field]="name" key="Tên"></app-show-validate>
   </div>
   <div class="form-group">
     <label for="">Tuổi user</label>
-    <input type="number" class="form-control" id="" name="age" ngModel required min="1" max="100" #age="ngModel">
-    <!-- <span>{{age.errors|json}}</span> -->
-    <app-show-validate [field]="age" key="tuổi"></app-show-validate>
-
-
+    <input
+      type="number"
+      class="form-control"
+      name="age"
+      [(ngModel)]="inputValues.age"
+      required min="1" max="100"
+      #age="ngModel"
+    >
+    <app-show-validate [field]="age" key="Tuổi"></app-show-validate>
+  </div>
+  <div class="form-group">
+    <label for="">Email user</label>
+    <input
+      type="text"
+      class="form-control"
+      name="email"
+      [(ngModel)]="inputValues.email"
+      required min="1" max="100"
+      #email="ngModel"
+    >
+    <app-show-validate [field]="email" key="email"></app-show-validate>
+  </div>
+  <div class="form-group">
+    <label for="">SĐT user</label>
+    <input
+      type="text"
+      class="form-control"
+      name="sdt"
+      [(ngModel)]="inputValues.sdt"
+      required minlength="1" maxlength="10"
+      #sdt="ngModel"
+    >
+    <app-show-validate [field]="sdt" key="sdt"></app-show-validate>
   </div>
   <div>
-    <button class="btn btn-success" [disabled]="!userForm.valid">Submit</button>
+    <button type="submit"
+      class="btn btn-success"
+      [disabled]="!userForm.valid"
+    >Submit</button>
   </div>
 </form>
+
+<div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Tên</th>
+        <th>Tuổi</th>
+        <th>Email</th>
+        <th>SĐT</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.age}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.sdt}}</td>
+        <td><button class="btn btn-primary" (click)="update(users,user.id)">Sửa</button></td>
+        <td><button  class="btn btn-danger" (click)="remove(user.id)">Xóa</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

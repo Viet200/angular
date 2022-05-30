@@ -1,0 +1,17 @@
+{
+  "products":
+  [
+    {
+    "id":1,
+    "name":"iphone"
+  },
+  {
+    "id":2,
+  "name":"samsung"
+  },
+  {
+    "id":2,
+  "name":"samsung"
+  }
+]
+}
