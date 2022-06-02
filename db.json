@@ -1,17 +1,24 @@
 {
-  "products":
-  [
+  "products": [
     {
-    "id":1,
-    "name":"iphone"
-  },
-  {
-    "id":2,
-  "name":"samsung"
-  },
-  {
-    "id":2,
-  "name":"samsung"
-  }
-]
+      "id": 2,
+      "name": "samsung"
+    },
+    {
+      "id": 4,
+      "name": "realme"
+    },
+    {
+      "id": 5,
+      "name": "nokia"
+    },
+    {
+      "id": 6,
+      "name": "star"
+    },
+    {
+      "id": 7,
+      "name": "lumia"
+    }
+  ]
 }

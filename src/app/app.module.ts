@@ -25,6 +25,7 @@ import { AdminProductDetailComponent } from './pages/admin/admin-product/admin-p
 import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
 import { AdminProductEditComponent } from './pages/admin/admin-product/admin-product-edit/admin-product-edit.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,7 @@ import { HttpClientModule } from '@angular/common/http';
     AdminProductEditComponent,
   ],
 
-    imports: [BrowserModule, AppRoutingModule, NgbModule, FormsModule, HttpClientModule],
+    imports: [BrowserModule, AppRoutingModule, NgbModule, FormsModule, HttpClientModule,ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

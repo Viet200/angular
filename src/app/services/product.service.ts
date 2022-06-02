@@ -12,4 +12,10 @@ export class ProductService {
     getProducts():Observable<Product[]> {
      return this.http.get<Product[]>(environment.products)
     }
+    getProduct(id:string):Observable<Product>{
+      return this.http.get<Product>(`${environment.products}/${id}`);
+    }
+    deleteProduct(id:String|Number):Observable<any>{
+      return this.http.delete(`${environment.products}/${id}`)
+    }
 }
