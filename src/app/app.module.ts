@@ -18,7 +18,6 @@ import { AboutClientComponent } from './about-client/about-client.component';
 import { ProductDetailClientComponent } from './product-detail-client/product-detail-client.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { ClientLayoutComponent } from './layouts/client-layout/client-layout.component';
-import { HomeClientComponent } from './home-client/home-client.component';
 import { UserComponent } from './user/user.component';
 import { AdminProductListComponent } from './pages/admin/admin-product/admin-product-list/admin-product-list.component';
 import { AdminProductDetailComponent } from './pages/admin/admin-product/admin-product-detail/admin-product-detail.component';
@@ -26,6 +25,14 @@ import { AdminProductFormComponent } from './pages/admin/admin-product/admin-pro
 import { AdminProductEditComponent } from './pages/admin/admin-product/admin-product-edit/admin-product-edit.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './pages/auth/login/login.component';
+import { CartComponent } from './conponent/cart/cart.component';
+import { HomeProductClientComponent } from './pages/product-client/home-product-client/home-product-client.component';
+import { HomeClientComponent } from './layouts/client-layout/home-client/home-client.component';
+import { DetailClientComponent } from './layouts/client-layout/detail-client/detail-client.component';
+import { SignUpComponent } from './layouts/client-layout/auth/sign-up/sign-up.component';
+import { SignInComponent } from './layouts/client-layout/auth/sign-in/sign-in.component';
+import { ManagerCartComponent } from './layouts/client-layout/manager-cart/manager-cart.component';
 
 @NgModule({
   declarations: [
@@ -49,9 +56,23 @@ import { ReactiveFormsModule } from '@angular/forms';
     AdminProductDetailComponent,
     AdminProductFormComponent,
     AdminProductEditComponent,
+    LoginComponent,
+    CartComponent,
+    HomeProductClientComponent,
+    DetailClientComponent,
+    SignUpComponent,
+    SignInComponent,
+    ManagerCartComponent,
   ],
 
-    imports: [BrowserModule, AppRoutingModule, NgbModule, FormsModule, HttpClientModule,ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

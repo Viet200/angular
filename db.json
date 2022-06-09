@@ -20,5 +20,11 @@
       "id": 7,
       "name": "lumia"
     }
+  ],
+  "users":[
+    {
+      "email":"admin@gmail.com",
+      "password":"$2a$12$E.3UiGYnuQVDO42D2sDMT.kdfwmnVX2sk8gEmUVXYozVuUxh8etpy"
+    }
   ]
 }

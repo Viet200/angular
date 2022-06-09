@@ -6,17 +6,30 @@
     <tr>
       <th>ID</th>
       <th>Name</th>
+      <th>Price</th>
+      <th>Sale_price</th>
+      <th>Description</th>
+      <th>img_url</th>
+      <th>category_id</th>
+      <th>status</th>
       <th>Action</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor=" let product of products">
-      <td>{{product.id}}</td>
+      <td>{{product._id}}</td>
       <td>{{product.name}}</td>
+      <td>{{product.price}</td>
+      <td>{{product.Sale_price}</td>
+      <td>{{product.description}}</td>
+      <img src="{{product.image_url}}" alt="Không hiển thị được ảnh">
+      <td>{{product.category_id}}</td>
+      <td>{{product.status}}</td>
+
       <td>
-        <button style="margin-right: 5px;" [routerLink]="['/admin',product.id]" class="btn btn-info">Detail</button>
+        <button style="margin-right: 5px;"[routerLink]="['/admin',product._id]" class="btn btn-info">Detail</button>
           <a routerLink="#" class="btn btn-primary">Sửa</a>
-        <button style="margin-right: 5px;" (click)="onDelete(product.id)" class="btn btn-primary">Xóa</button>
+        <button style="margin-right: 5px;" (click)="onDelete(product._id)" class="btn btn-primary">Xóa</button>
       </td>
     </tr>
   </tbody>

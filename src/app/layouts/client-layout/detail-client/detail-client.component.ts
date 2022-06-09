@@ -5,11 +5,12 @@ import { ProductService } from 'src/app/services/product.service';
 import { Product,ProductCart } from 'src/app/types/Product';
 
 @Component({
-  selector: 'app-admin-product-detail',
-  templateUrl: './admin-product-detail.component.html',
-  styleUrls: ['./admin-product-detail.component.css']
+  selector: 'app-detail-client',
+  templateUrl: './detail-client.component.html',
+  styleUrls: ['./detail-client.component.css']
 })
-export class AdminProductDetailComponent implements OnInit {
+export class DetailClientComponent implements OnInit {
+
   id:any;
   product:Product;
   cartValue:Number;

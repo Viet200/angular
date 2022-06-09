@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="card">
+    <div class="container-fliud">
+      <div class="wrapper row">
+        <div class="preview col-md-6">
+
+          <div class="preview-pic tab-content">
+            <div class="tab-pane active" id="pic-1"><img src="http://placekitten.com/400/252" /></div>
+
+          </div>
+
+
+        </div>
+        <div class="details col-md-6">
+          <h3 class="product-title">{{product.name}}</h3>
+          <div class="rating">
+            <div class="stars">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+            </div>
+          </div>
+          <p class="product-description">{{product.description}}</p>
+          <h4 class="price ">Giá cũ:<span class="price_color"><del>{{product.price}}</del></span></h4>
+          <h4 class="price ">Giá mới:<span  class="price_color"><b>{{product.sale_price}}</b></span></h4>
+          <h4 class="price">Trạng thái:<span><b>{{product.status===1?"Còn hàng":"Hết hàng"}}</b></span></h4>
+
+
+
+          <div class="action">
+            <input
+            type="number"
+            min="1"
+            class="form-control cart-value"
+            [value]="cartValue"
+            (input)="onChangeCartValue($event)"
+          />
+          <button
+            class="btn btn-success"
+            (click)="onAddToCart()"
+          >Thêm vào giỏ hàng</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
