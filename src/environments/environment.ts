@@ -6,7 +6,9 @@ const apiURL = 'http://localhost:3001'
 export const environment = {
   production: false,
   products:`${apiURL}/products`,
-  login:`${apiURL}/login`
+  category: `${apiURL}/categories`,
+  users: `${apiURL}/users`,
+  login: `${apiURL}/login`
 };
 
 /*

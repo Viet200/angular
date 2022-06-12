@@ -1,0 +1,54 @@
+<header class="bg-white shadow">
+  <div class="max-w-[1440px] mx-auto py-6 px-4 sm:px-6 lg:px-8">
+      <div class="lg:flex lg:items-center lg:justify-between">
+          <div class="flex-1 min-w-0">
+              <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-2xl sm:truncate uppercase">
+                  quản lý danh mục
+              </h2>
+          </div>
+
+      </div>
+  </div>
+</header>
+<main>
+  <div class="max-w-[1440px] mx-auto py-6 sm:px-6 lg:px-8">
+      <div class="flex flex-col">
+          <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                  <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                    <div>
+                      <a routerLink="/admin/category/add"><button class="btn btn-primary">Add</button></a>
+                    </div>
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th>Name</th>
+
+                        </tr>
+                      </thead>
+                          <tbody class="bg-white divide-y divide-gray-200">
+                              <tr *ngFor="let cate of category">
+                                  <td class="px-9 py-4 whitespace text-sm text-gray-500">
+                                    {{cate._id}}
+                                  </td>
+                                  <td class="px-6 py-4 whitespace">
+                                      <div class="flex items-center">
+                                        {{cate.name}}
+                                      </div>
+                                  </td>
+                                  <td class="px-6 py-4 whitespace-nowrap">
+                                      <div class="flex items-center">
+                                          <a routerLink="/admin/category/edit/{{cate._id}}" class="btn btn-primary">EDIT</a>
+                                          <button (click)="onDelete(cate._id)"  class="btn btn-primary">DELETE</button>
+                                      </div>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</main>

@@ -1,16 +1,16 @@
 <div>
   <div class="container">
     <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col" *ngFor=" let product of products" [routerLink]="['',product._id]">
-        <div class="card h-100">
-          <img src="./images/{{product.image_url}}" class="card-img-top" alt="">
+      <div class="col" *ngFor=" let product of products" [routerLink]="['detail/',product._id]">
+        <div class="card-body h-100 ">
+          <div class="tab-pane active" id="pic-1"><img class="img_product" src="https://picsum.photos/200/250" /></div>
+          <!-- <img src="./images/{{product.image_url}}" class="card-img-top" alt=""> -->
           <div class="card-body">
-            <h5 class="card-title" [routerLink]="['',product._id]">{{product.name}}</h5>
-            <p class="card-text" [routerLink]="['',product._id]">{{product.description}}</p>
+            <h5 class="card-title" [routerLink]="['detail/',product._id]">{{product.name}}</h5>
+            <p class="card-text w-50" [routerLink]="['detail/',product._id]">{{product.description}}</p>
           </div>
         </div>
       </div>
-
     </div>
     </div>
   </div>

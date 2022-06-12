@@ -1,11 +1,11 @@
 export type TypeLogin = {
-  email:string,
-  password:string
+  email: string,
+  password: string
 };
 
-export type typeLoginReponse = {
-  accessToken:string,
-  user:{
-    email:string
+export type TypeLoginResponse = {
+  accessToken: string,
+  user: {
+    email: string
   }
 }
