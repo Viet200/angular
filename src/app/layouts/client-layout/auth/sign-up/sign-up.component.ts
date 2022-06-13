@@ -11,28 +11,28 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class SignUpComponent implements OnInit {
 
-  authForm : FormGroup;
+  registerForm : FormGroup ;
   constructor(
-    private router :Router,
-    private activateRoute : ActivatedRoute,
+    private authService :AuthService ,
+    private router : Router ,
   ) {
-    this.authForm=new FormGroup({
-      name:new FormControl('',Validators.required),
-      email:new FormControl('',Validators.required),
-      password:new FormControl('',Validators.required)
+    this.registerForm = new FormGroup ({
+      name: new FormControl('',Validators.required),
+      email: new FormControl('',Validators.required),
+      password: new FormControl('',Validators.required)
     })
-  }
+   }
 
   ngOnInit(): void {
   }
   onSubmit(){
-  //   const FormData= this.authForm.value;
-  //   this.authService.CreateAuth(FormData).subscribe((data)=>{
-  //     this.toastr.success('signup thanh cong, chuyen trang sau 3s')
-  //     setTimeout(() => {
-  //        this.router.navigateByUrl('/auth/login');
-  //     },3000);
+    const data = this.registerForm.value;
+    this.authService.register(data).subscribe(data =>{
+            this.router.navigateByUrl("/signIn");
+            console.log(data);
 
-  //   })
+    })
+
+
   }
 }

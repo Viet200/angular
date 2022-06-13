@@ -11,29 +11,28 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class SignInComponent implements OnInit {
 
-  // loginForm: FormGroup;
+  loginForm: FormGroup;
   constructor(
+    private AuthService:AuthService,
     private router: Router,
+  ) {
+    this.loginForm = new FormGroup({
+      email: new FormControl('', [
+        Validators.email,
+        Validators.required
+      ]),
+      password: new FormControl('',Validators.required)
+    })
+   }
 
-  ){}
   ngOnInit(): void {
   }
-  // {
-  //   this.loginForm = new FormGroup({
-  //     email: new FormControl('', Validators.email),
-  //     password: new FormControl(''),
-  //   });
-  // }
 
-  // ngOnInit(): void {}
-  // onSubmit() {
-  //   this.authService.login(this.loginForm.value).subscribe((data) => {
-  //     localStorage.setItem('loggedInUser', JSON.stringify(data));
-  //     this.toastr.success('Login thành công chuyển trang sau 3s');
-  //     setTimeout(() => {
-  //       this.router.navigateByUrl('/admin/products');
-  //     }, 3000);
-  //   });
-  // }
-
+  onSubmit(){
+    const data = this.loginForm.value;
+    this.AuthService.login(data).subscribe(data =>{
+        localStorage.setItem("users",JSON.stringify(data));
+        this.router.navigateByUrl('/');
+    })
+  }
 }

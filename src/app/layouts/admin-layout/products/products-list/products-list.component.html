@@ -27,7 +27,7 @@
       <td>{{product.status==1?"Còn hàng":"Hết hàng"}}</td>
 
       <td>
-          <a routerLink="#" class="btn btn-primary">Sửa</a>
+          <a routerLink="/admin/products/edit/{{product._id}}" class="btn btn-primary">Sửa</a>
         <button style="margin-right: 5px;" (click)="onDelete(product._id)" class="btn btn-primary">Xóa</button>
       </td>
     </tr>

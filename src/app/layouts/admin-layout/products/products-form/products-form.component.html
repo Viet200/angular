@@ -33,6 +33,6 @@
     <input type="number" class="form-control" formControlName="status">
   </div>
   <div>
-    <button class="btn btn-success">Submit</button>
+    <button class="btn btn-success" [disabled]="!productForm.valid">Submit</button>
   </div>
 </form>

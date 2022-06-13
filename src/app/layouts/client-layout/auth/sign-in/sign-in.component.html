@@ -6,7 +6,7 @@
           <div class="row justify-content-center">
             <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Đăng nhập</p>
             <!-- [formGroup]="loginForm" (ngSubmit)="onSubmit()" -->
-  <form >
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <!-- Email input -->
     <div class="form-outline mb-4">
       <input type="email" id="form2Example1" class="form-control" />
@@ -37,12 +37,12 @@
 
     <!-- Submit button -->
     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-      <button type="button" class="btn btn-primary btn-lg">Sign in</button>
+      <button  class="btn btn-primary btn-lg" >Sign in</button>
     </div>
 
     <!-- Register buttons -->
     <div class="text-center">
-      <p>Bạn chưa có tài khoản?  <a routerLink="signUp">Đăng ký</a></p>
+      <p>Bạn chưa có tài khoản?  <a routerLink="signUp" >Đăng ký</a></p>
 
     </div>
   </form>

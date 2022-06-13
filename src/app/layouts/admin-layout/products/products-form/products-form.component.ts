@@ -13,7 +13,9 @@ export class ProductsFormComponent implements OnInit {
 
   productForm: FormGroup;
   category: CategoryType[]
+  productId : string ;
   constructor(
+    private activeRoute : ActivatedRoute,
     private productService: ProductService,
     private router: Router,
     private categoryService:CategoryService
@@ -43,14 +45,28 @@ export class ProductsFormComponent implements OnInit {
 
       category_id: new FormControl(0)
     })
-    this.category =[]
+    this.category =[];
+    this.productId = "0";
   }
 
   ngOnInit(): void {
-    this.categoryService.listCate().subscribe(data=>{
-      this.category = data
-    })
-  }
+    this.productId = this.activeRoute.snapshot.params['id'];
+    if(this.productId){
+    this.productService.getProduct(this.productId).subscribe(data => {
+      this.productForm.patchValue({
+        name:data.name,
+        price: data.price ,
+        description: data.description,
+        sale_price:data.sale_price,
+        image_url:data.image_url,
+        status:data.status
+      });
+    });
+    }
+  this.categoryService.listCate().subscribe(data =>{
+    this.category = data;
+  })
+}
 
   onValidateNameProduct(control: AbstractControl): ValidationErrors | null {
     const { value } = control;
@@ -60,11 +76,19 @@ export class ProductsFormComponent implements OnInit {
     return null;
   }
   onSubmit() {
-
-    console.log(this.productForm.value);
     const submitData = this.productForm.value;
-    return this.productService.addProducts(submitData).subscribe(data => {
-      this.router.navigateByUrl('/admin/products')
+
+    if (this.productId !== "" && this.productId !== undefined) {
+      return this.productService.updateProduct(this.productId, submitData).subscribe(data => {
+        this.router.navigateByUrl('/admin/products');
+      });
+    }
+
+    // 2. Call API (Cần định nghĩa service và router điều hướng)
+    return this.productService.addProducts(submitData).subscribe((data) => {
+      // 3. Sau khi API call thành công sẽ điều hướng về danh sách
+      // this.router.navigate(['/admin', 'products']);
+      this.router.navigateByUrl('/admin/products');
     })
   }
 
